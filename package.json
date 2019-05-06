@@ -1,0 +1,26 @@
+{
+  "name": "nixplay-messenger",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guillaumejounel/nixplay-messenger"
+  },
+  "keywords": [
+    "nixplay",
+    "messenger",
+    "bot",
+    "facebook"
+  ],
+  "author": "Guillaume Jounel <gjounel@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "facebook-chat-api": "^1.6.1",
+    "nodemailer": "^6.1.1"
+  }
+}
