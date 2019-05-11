@@ -1,14 +1,35 @@
 require("dotenv").config();
-const login = require("facebook-chat-api");
+const utils = require("./utils");
+const db = require("./db");
 
-login(
-  { email: process.env.FB_USR, password: process.env.FB_PWD },
-  (err, api) => {
-    if (err) return console.error(err);
-
-    api.listen((err, message) => {
-      console.log(message);
-      // api.sendMessage(message.body, message.threadID);
+// TODO: Use official Facebook API
+const main = async () => {
+  console.log("Bob is waking up...");
+  try {
+    const api = await utils.getApi();
+    api.listen(async (err, message) => {
+      const targetEmail = await db.getTargetEmail(message.threadID);
+      if (targetEmail) {
+        message.attachments
+          .filter(a => a.type === "photo")
+          .forEach(async photo => {
+            try {
+              const photoUrl = await utils.getPhotoUrl(api, photo.ID);
+              const response = await utils.sendEmail(photoUrl);
+              api.sendMessage(utils.getMessage("sent"), message.threadID);
+            } catch (err) {
+              api.sendMessage(utils.getMessage("error"), message.threadID);
+            }
+          });
+      } else {
+        api.sendMessage("Bonjour !", message.threadID);
+        console.log("message");
+      }
     });
+  } catch (err) {
+    console.error(err);
+    main();
   }
-);
+};
+
+main();
