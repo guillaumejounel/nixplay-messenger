@@ -15,7 +15,7 @@ const main = async () => {
           .forEach(async photo => {
             try {
               const photoUrl = await utils.getPhotoUrl(api, photo.ID);
-              const response = await utils.sendEmail(photoUrl);
+              const response = await utils.sendEmail(photoUrl, targetEmail);
               api.sendMessage(utils.getMessage("sent"), message.threadID);
             } catch (err) {
               api.sendMessage(utils.getMessage("error"), message.threadID);

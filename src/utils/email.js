@@ -8,19 +8,19 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const mailOptions = imageUrl => {
+const mailOptions = (imageUrl, targetEmail) => {
   return {
     from: process.env.EMAIL_USR,
-    to: process.env.TARGET,
+    to: targetEmail,
     subject: "Bob FotoBot",
     html: "<p>Photo envoyée via nixplay-messenger</p>",
     attachments: [{ path: imageUrl }]
   };
 };
 
-const sendEmail = imageUrl => {
+const sendEmail = (imageUrl, targetEmail) => {
   return new Promise((resolve, reject) => {
-    transporter.sendMail(mailOptions(imageUrl), (err, info) => {
+    transporter.sendMail(mailOptions(imageUrl, targetEmail), (err, info) => {
       if (err) reject(err);
       resolve(info);
     });
