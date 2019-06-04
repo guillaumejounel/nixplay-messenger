@@ -22,8 +22,14 @@ const main = async () => {
             }
           });
       } else {
-        api.sendMessage("Bonjour !", message.threadID);
-        console.log("message");
+        if (message.body.includes("@")) {
+          await db.setTargetEmail(message.threadID, message.body);
+        } else {
+          api.sendMessage(
+            "Yo moi c'est Bobby ! À qui veux-tu envoyer tes tofs ?",
+            message.threadID
+          );
+        }
       }
     });
   } catch (err) {
