@@ -11,6 +11,18 @@ const messages = {
     "Oops, je n'ai pas pu envoyer la photo :/",
     "Désolé, je ne peux pas transmettre la photo",
     "Impossible d'envoyer la photo..."
+  ],
+  thanks: [
+    "De rien :|",
+    "Allons bon, c'est normal",
+    "Bah oui bah quoi :|",
+    ":|",
+    "Pr",
+    "Pr pr",
+    "Prr pr",
+    "🐙",
+    "🐥",
+    "Woumf"
   ]
 };
 

@@ -43,10 +43,12 @@ const getApi = () => {
 
 const getPhotoUrl = (api, photoId) => {
   return new Promise((resolve, reject) => {
-    api.resolvePhotoUrl(photoId, (err, url) => {
-      if (err) reject(err);
-      resolve(url);
-    });
+    setTimeout(() => {
+      api.resolvePhotoUrl(photoId, (err, url) => {
+        if (err) reject(err);
+        resolve(url);
+      });
+    }, 3000);
   });
 };
 
