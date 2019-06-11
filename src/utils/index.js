@@ -1,5 +1,6 @@
 module.exports = {
   ...require("./email"),
   ...require("./facebook"),
-  ...require("./messages")
+  ...require("./messages"),
+  ...require("./hooks")
 };
