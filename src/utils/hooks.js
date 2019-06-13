@@ -11,8 +11,18 @@ const hooks = {
   email_set: {
     all: ["@"],
     action: (api, message) => {
-      setTargetEmail(message.threadID, message.body);
-      api.sendMessage(getMessage("email_ok"), message.threadID);
+      const email = message.body.match(/\S*@mynixplay.com/);
+      if (email) {
+        setTargetEmail(message.threadID, email[0]);
+        api.sendMessage(getMessage("email_ok"), message.threadID);
+      }
+    }
+  },
+  hi: {
+    all: ["bobby"],
+    any: ["coucou", "bonjour", "salut"],
+    action: (api, message) => {
+      api.sendMessage(getMessage("hi"), message.threadID);
     }
   }
 };
