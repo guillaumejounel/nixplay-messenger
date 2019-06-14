@@ -7,7 +7,8 @@ const messages = {
     "La photo vient de partir !",
     "Photo transmise !",
     "Ça part ! 🚀",
-    "Allez hop, j'envoie ça ! ✉️"
+    "Allez hop, j'envoie ça ! ✉️",
+    "J'envoie ça ! ✈️"
   ],
   error: [
     "Oops, je n'ai pas pu envoyer la photo :/",
@@ -27,14 +28,20 @@ const messages = {
     "Prr pr",
     "🐙",
     "🐥",
-    "Woumf"
+    "Woumf",
+    "T'inquiètes c'est normal 😘",
+    "À votre service 🙏"
   ],
-  greet: ["Yo moi c'est Bobby ! À qui veux-tu envoyer tes photos ? :|"],
+  greet: [
+    "Yo moi c'est Bobby ! À qui veux-tu envoyer tes photos ? :|",
+    "Hey je suis Bobby, dis-moi à qui tu veux envoyer tes photos et je m'occupe de tout ! 👌"
+  ],
   email_ok: [
     "Ok, c'est noté, j'envoie tout à cette adresse email maintenant ✨",
-    "Ça marche, je transfère tout à cet email à partir de maintenant 🚀"
+    "Ça marche, je transfère tout à cet email à partir de maintenant 🚀",
+    "Je retiens, toutes les photos seront envoyées à cette adresse 👍"
   ],
-  hi: ["Bonjour :|", "Yo !", "Hey hey hey :)", "Salut !"]
+  hi: ["Bonjour :|", "Yo !", "Hey hey hey :)", "Salut !", "Coucou 👾", "Hello!"]
 };
 
 const getMessage = type => {
