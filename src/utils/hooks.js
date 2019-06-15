@@ -20,7 +20,7 @@ const hooks = {
   },
   hi: {
     all: ["bobby"],
-    any: ["coucou", "bonjour", "salut"],
+    any: ["coucou", "bonjour", "salut", "yo", "hey"],
     action: (api, message) => {
       api.sendMessage(getMessage("hi"), message.threadID);
     }
